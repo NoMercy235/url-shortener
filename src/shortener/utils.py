@@ -10,7 +10,7 @@ def create_shortcode(instance, size=15):
     new_code = code_generator(size=size)
     Klass = instance.__class__
 
-    qs_exists = Klass.object.filter(shortcode=new_code).exists()
+    qs_exists = Klass.objects.filter(shortcode=new_code).exists()
 
     if qs_exists:
         return create_shortcode(size=size)
