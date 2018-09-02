@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kirr.co | {% block title %}Shorten that URL{% endblock title %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.1/examples/cover/cover.css" rel="stylesheet">
+    {% block styles %}
+    <style>
+        body {
+          display: flex;
+        }
+        .btn-link {
+          color: #50dfec;
+          text-shadow: none;
+        }
+        .btn-link:hover {
+          color: #000000;
+        }
+    </style>
+    {% endblock styles %}
+</head>
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>

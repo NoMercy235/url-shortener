@@ -27,7 +27,7 @@ class HomeView(View):
 
     def get_context(self, form):
         return {
-            'title': 'Hello world!',
+            'title': 'Kirr.co - URL shortener',
             'form': form,
         }
 

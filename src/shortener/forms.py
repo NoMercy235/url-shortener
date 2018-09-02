@@ -1,9 +1,15 @@
-from django.forms import Form, CharField
+from django.forms import Form, CharField, TextInput
 from .validators import validate_url
 
 
 class SubmitURLForm(Form):
-    url = CharField(label='Submit URL', validators=[validate_url])
+    url = CharField(
+        label='',
+        validators=[validate_url],
+        widget=TextInput(
+            attrs={'placeholder': 'URL', 'class': 'form-control'}
+        )
+    )
 
     def clean_url(self):
         value = self.cleaned_data.get('url')
