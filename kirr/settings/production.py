@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = '(=#8j+po!+%5m&8!o)1%(w)=$dy^+$_r2!9gw2pz2hw#g)3h_1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['kirr.co', 'www.kirr.co', 'kirr-ngenh.herokuapp.com']
 
@@ -63,8 +63,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'kirr.urls'
 ROOT_HOSTCONF = 'kirr.hosts'
 DEFAULT_HOST = 'www'
-PARENT_HOST = 'kirr.co'
-DEFAULT_REDIRECT_URL = 'http://www.kirr.co'
+PARENT_HOST = 'herokuapp.com'
+DEFAULT_REDIRECT_URL = 'http://kirr-ngenh.herokuapp.com'
 
 TEMPLATES = [
     {
