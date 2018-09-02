@@ -21,5 +21,5 @@ from shortener.views import KirrCBView, HomeView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view()),
-    url(r'^ (?P<shortcode>[\w-]+){6,20}/$', KirrCBView.as_view()),
+    url(r'^(?P<shortcode>[\w-]+)/$', KirrCBView.as_view(), name='scode'),
 ]

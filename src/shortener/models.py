@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django_hosts.resolvers import reverse
 from .utils import create_shortcode
 from .validators import validate_url
 
@@ -54,3 +55,7 @@ class KirrURL(models.Model):
         if self.shortcode is None or self.shortcode == '' or self.shortcode == '__placeholder__':
             self.shortcode = create_shortcode(self)
         super().save(*args, **kwargs)
+
+    def get_short_url(self):
+        print(self.shortcode)
+        return reverse('scode', args=(self.shortcode, ), host='www', scheme='http')
