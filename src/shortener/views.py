@@ -1,12 +1,12 @@
 from django.http import HttpResponseRedirect
 from django.views import View
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from .models import KirrURL
 
 
-def kirr_redirect_view(req, shortcode=None, *args, **kwargs):
-    obj = get_object_or_404(KirrURL, shortcode=shortcode)
-    return HttpResponseRedirect(obj.url)
+class HomeView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'shortener/home.html', {})
 
 
 class KirrCBView(View):
