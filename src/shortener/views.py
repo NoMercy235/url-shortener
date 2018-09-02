@@ -11,9 +11,18 @@ class HomeView(View):
 
     def post(self, req, *args, **kwargs):
         form = SubmitURLForm(req.POST)
+        template = 'shortener/home.html'
+        context = self.get_context(form)
         if form.is_valid():
-            print(form.cleaned_data)
-        return render(req, 'shortener/home.html', self.get_context(form))
+            url = form.cleaned_data.get('url')
+            obj, created = KirrURL.objects.get_or_create(url=url)
+            context = {
+                'object': obj,
+                'created': created,
+            }
+            template = 'shortener/success.html' if created else 'shortener/already-exists.html'
+
+        return render(req, template, context)
 
     def get_context(self, form):
         return {
